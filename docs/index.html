@@ -11,31 +11,34 @@
 <body>
   <div id="app"></div>
   <script src="//unpkg.com/docsify"></script>
-  <script>
-    window.$docsify = {
-      name: '',
-      repo: ''
-    }
-  </script>
 
   <script>
-    window.$docsify = {
-      loadSidebar: true
-    }
-  </script>
-  <script>
-    window.$docsify = {
-      loadNavbar: true
-    }
-  </script>
-
-  <script>
-    window.$docsify = {
-      coverpage: true
-    }
+      window.$docsify = {
+          name: '',
+          repo: '',
+          coverpage: true,
+          loadNavbar: true,
+          loadSidebar: true,
+          subMaxLevel: 2,
+          sidebarDisplayLevel: 1,
+          alias: {
+              '/.*/_sidebar.md': '/_sidebar.md'
+          },
+          search: {
+              noData: {
+                  '/': '没有结果!'
+              },
+              paths: 'auto',
+              placeholder: {
+                  '/': '搜索'
+              }
+          }
+      }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 </body>
 </html>
