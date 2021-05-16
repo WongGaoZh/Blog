@@ -1,9 +1,6 @@
 # Blog
 学习记录2
 
-
-!> You can create a `README.md` file in a subdirectory to use it as the landing page for the route.
-
 ## Set Page Titles from Sidebar Selection
 
 A page's `title` tag is generated from the _selected_ sidebar item name. For better SEO, you can customize the title by specifying a string after the filename.
