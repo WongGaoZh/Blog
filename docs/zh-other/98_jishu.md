@@ -1,0 +1,5 @@
+技术选型:
+spring cloud 全家桶
+
+1. zipkin - 链路追踪
+2. xxl-job 任务调度中心
