@@ -16,9 +16,9 @@ mybatis log plugin插件, 可以直接把mybatis打印的日志生成出来sql
  idea中格式化模板
 elipse
 
-+ [thunisoft_codetemplates.xml](./assets/thunisoft_codetemplates.xml)
++ [thunisoft_codetemplates.xml](https://raw.githubusercontent.com/WongGaoZh/Blog/main/docs/zh-other/assets/thunisoft_codetemplates.xml)
 
 idea
-+ [thunisoft_format.xml](./assets/thunisoft_format.xml)
++ [thunisoft_format.xml](https://raw.githubusercontent.com/WongGaoZh/Blog/main/docs/zh-other/assets/thunisoft_format.xml)
 
 
