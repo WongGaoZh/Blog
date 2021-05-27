@@ -47,5 +47,11 @@ helm list
 
 # 查看kubelet的日志
 journalctl -f -u kubelet.service
+
+# 查看pod的 service的映射关系
+kubectl describe service dianxin-vehicle
+
+# 查看那k8s中 service(端口服务的情况 )
+kubectl get svc
 ```
 
