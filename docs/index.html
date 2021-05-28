@@ -16,7 +16,9 @@
       window.$docsify = {
           name: '',
           repo: '',
+          auto2top: true,
           coverpage: true,
+          autoHeader: true,
           loadNavbar: true,
           loadSidebar: true,
           subMaxLevel: 1,
@@ -25,20 +27,20 @@
               '/.*/_sidebar.md': '/_sidebar.md'
           },
           search: {
-              noData: {
-                  '/': '没有结果!'
-              },
-              paths: 'auto',
-              placeholder: {
-                  '/': '搜索'
-              }
-          }
+            noData: {
+              '/': '没有结果'
+            },
+            paths: 'auto',
+            placeholder: {
+              '/': '搜索'
+            }
+          },
       }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <!-- plugins -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+<!--  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>-->
 </body>
 </html>
