@@ -8,14 +8,12 @@
     * [结构型设计模式](zh-design/structural.md)
 
 * [2 源码分析](zh-sound/)   
-     * [01 Springboot的原理](zh-sound/springboot.md)
 * [3 工程化工具](zh-devops/)   
     * [docker](zh-devops/docker.md)  
     * [k8s](zh-devops/k8s.md)  
     * [kubeadm 搭建集群](zh-devops/kubeadm.md)  
        
-* [4 微服务框架](/)   
-    * [spring security 原理](zh-spring/)
+* [4 微服务框架](zh-spring/)   
 * [5 高并发和分布式](/) 
     * [50 分布式锁](zh-lock/分布式锁.md)
 * [6 性能优化](/)   
