@@ -9,9 +9,7 @@
 
 * [2 源码分析](zh-sound/)   
 * [3 工程化工具](zh-devops/)   
-    * [docker](zh-devops/docker.md)  
-    * [k8s](zh-devops/k8s.md)  
-    * [kubeadm 搭建集群](zh-devops/kubeadm.md)  
+    
        
 * [4 微服务框架](zh-spring/)   
 * [5 高并发和分布式](/) 
