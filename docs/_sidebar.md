@@ -1,23 +1,15 @@
 <!-- docs/_sidebar.md -->
-
 * [首页](zh-cn/)
-    
 * [1 设计模式](zh-design/)
     * [创建型模式总结](zh-design/construction.md)
     * [行为型模式总结](zh-design/behavior.md)
     * [结构型设计模式](zh-design/structural.md)
-
 * [2 源码分析](zh-sound/)   
-* [3 工程化工具](zh-devops/)   
-    
-       
+* [3 工程化工具](zh-devops/)          
 * [4 微服务框架](zh-spring/)   
-* [5 高并发和分布式](/) 
-    * [50 分布式锁](zh-lock/分布式锁.md)
+* [5 高并发和分布式](zh-lock/)
 * [6 性能优化](/)   
 * [7 算法](/)   
 * [8 数据库](/)   
 * [9 其他](zh-other/)
-
-    * [1 工具选型](zh-other/工具选型.md)   
  
