@@ -46,6 +46,9 @@ docker save iregistry.baidu-int.com/acg-det/ct-ocr-console:1.0.7 -o console.tar
 docker load -i dianxin_human.tar 
 
 
+# docker dockerfile变成镜像
+docker build -t runoob/ubuntu:v1 . 
+
 ```
 
 ## 安装教程
