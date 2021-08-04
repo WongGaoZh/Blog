@@ -29,6 +29,6 @@ NIO 主要有三大核心部分：Channel(通道)，Buffer(缓冲区), Selector�
 
 ![image](./assets/clipboard.png)
 
-学习连接:
+参考连接:
 
 https://blog.csdn.net/weixin_30363263/article/details/88106286
