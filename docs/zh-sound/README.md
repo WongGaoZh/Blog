@@ -1,6 +1,6 @@
 ### 源码分析
-* [http请求原理](zh-sound/http.md)
-* [BIO和NIO还有AIO的区别](zh-sound/BIO和NIO还有AIO的区别.md)
+* [http请求原理](../zh-sound/http.md)
+* [BIO和NIO还有AIO的区别](../zh-sound/BIO和NIO还有AIO的区别.md)
 
   
 ### spring源码分析
