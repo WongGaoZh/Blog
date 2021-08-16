@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>学习笔记</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -12,20 +12,21 @@
   <div id="app"></div>
   <script>
       window.$docsify = {
+          name: '学习笔记',
           search: {
             paths: 'auto',
             placeholder: '请输入要搜索的关键字',
             noData: '没有结果',
             depth: 6,
           },
-          name: '个人博客',
+
           repo: 'https://github.com/WongGaoZh/Blog',
           auto2top: true,
           coverpage: true,
           autoHeader: true,
           loadNavbar: true,
           loadSidebar: true,
-          subMaxLevel: 1,
+          subMaxLevel: 3, //侧边栏显示当前页面的目录(标题)
           sidebarDisplayLevel: 1,
           alias: {
               '/.*/_sidebar.md': '/_sidebar.md'
@@ -33,8 +34,34 @@
       }
   </script>
   <script src="//unpkg.com/docsify"></script>
+  <!-- 引入搜索模块 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!-- plugins -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+<!--  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>-->
+
+  <!-- 添加一键拷贝代码-->
+  <script src="//unpkg.com/docsify-copy-code"></script></script>
+
+  <!-- 回到顶部功能 -->
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/forthespada/forthespada.github.io@master/plugin/jquery.goup.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $.goup({
+        trigger: 700,
+        bottomOffset: 20,
+        locationOffset: 8,
+        title: '',
+        titleAsText: true
+      });
+    });
+  </script>
+
+  <!-- 添加代码高亮 -->
+  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
 </body>
 </html>

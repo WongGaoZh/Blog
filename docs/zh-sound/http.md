@@ -66,3 +66,8 @@ $.ajax({
 ![image](assets/clipboard05.png)
 
 ![image](assets/clipboard06.png)
+
+
+## HTTP在网络中传输
+
+![](./assets/http2.png)
