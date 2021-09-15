@@ -21,6 +21,14 @@ git push origin HEAD:refs/for/master  推送到远程中台
 git push <remote> <branch> -f
 ```
 
+```java
+# 撤销
+
+
+git reset --hard HEAD^   # 撤销上次操作
+
+```
+
 ```
 # 拉取 
 git fetch 获取远程版本库的提交
@@ -36,8 +44,8 @@ git config --global http.sslBackend "openssl"
 
 ```
 ## git的交互式rebase
-
-图形化页面 : 
+命令: git rebase 分支名
+图示操作,需要使用idea工具
 
 ![images](./assets/idea-rebase01.png)
 
