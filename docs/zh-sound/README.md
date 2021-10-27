@@ -7,3 +7,4 @@
 ### spring源码分析
 * [Springboot的原理](zh-sound/springboot.md)
 * [springmvc的原理](zh-sound/springmvc的原理.md)
+* [类的加载和实例化区别和在jvm内存的过程](zh-sound/类的加载和实例化区别和在jvm内存的过程.md)
