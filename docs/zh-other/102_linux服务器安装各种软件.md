@@ -1,4 +1,4 @@
-# linux安装 
+# linux安装软件
 
 > 安装路径规范: 
 >/opt目录用来安装附加软件包，是用户级的程序目录，
@@ -12,6 +12,21 @@
 >apache基金仓库:  https://mirrors.cnnic.cn/apache/
 >
 >华为仓库:  https://mirrors.huaweicloud.com/home
+
+## window 配置 远程linux 免密登入
+
+```shell
+ # ssh路径地址
+ ~/.
+ 
+# 通过scp命令,把window的id_rsa.pub上传到linux服务器的ssh路径下
+scp id_rsa.pub root@xxx:/root/.ssh/
+
+# 在linux服务器上
+cd ~/. 
+cat id_ras.pub >>  authorized_keys 
+```
+
 
 ## linux安装jdk
 
