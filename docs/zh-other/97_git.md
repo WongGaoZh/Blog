@@ -23,9 +23,12 @@ git push <remote> <branch> -f
 
 ```java
 # 撤销
-
+--soft-将HEAD指针更新为在指定的提交。 工作目录和索引未更改。
+--mixed -更新HEAD指针，并将索引重置为指定的提交。 工作目录保持不变。 这是reset命令的默认操作模式。
+--hard -更新HEAD指针，并将索引和工作目录重置为指定的提交。 使用此选项时要格外小心，因为所有您尚未提交的本地更改都会被覆盖并丢失。
 
 git reset --hard HEAD^   # 撤销上次操作
+git reset --soft HEAD^  
 
 ```
 
@@ -50,3 +53,4 @@ git config --global http.sslBackend "openssl"
 ![images](./assets/idea-rebase01.png)
 
 ![images](./assets/idea-rebase02.png)
+

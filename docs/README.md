@@ -1,12 +1,14 @@
 # 📙学习笔记
 
-## 源码分析
+## 项目介绍
+>个人学习笔记，主要会记录平时一些学习和项目中遇到的问题， 内容涵盖设计模式、源码分析、工程化工具、微服务架构、高并发
+和分布式, 性能优化, 算法, 数据库等领域知识,方便自己的学习和查阅. 
 
-### 源码分析
-* [http请求原理](./zh-sound/http.md)
-* [BIO和NIO还有AIO的区别](zh-sound/BIO和NIO还有AIO的区别.md)
+> 本仓库有来源自己总结、网上收集、视频笔记 , 借鉴部分会在参考文章里面添加
 
-  
-### spring源码分析
-* [Springboot的原理](zh-sound/springboot.md)
-* [springmvc的原理](zh-sound/springmvc的原理.md)
+
+## 在线阅读
+
+>为了更方便自己的复习和查询，基于 Docsify 进行构建 , 实现在线查看, 站点的自动部署和更新 
+
+- GitHub Pages: https://wonggaozh.github.io/Blog
