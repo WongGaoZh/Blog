@@ -9,3 +9,5 @@
  
  # 工具类
  + [破解软件资料](zh-other/101_破解软件资料.md)
+ + [linux服务器安装各种软件](zh-other/102_linux服务器安装各种软件.md)
+ + [idea插件使用](zh-other/103_idea插件使用.md)

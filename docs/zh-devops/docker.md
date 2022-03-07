@@ -25,8 +25,9 @@ docker run -it -v /Users/yanguangyuan/docker_file/:/tmp/ -p 8080:8080 -p 8081:80
 docker ps
 docker ps -l 是查看最后一个进程
 
-# 删除docker
+# 删除docker镜像
 docker rmi `CONTAINER ID`
+-f 表示强制删除
 
 
 # 进入docker容器里面
@@ -49,6 +50,30 @@ docker load -i dianxin_human.tar
 
 # docker dockerfile变成镜像
 docker build -t runoob/ubuntu:v1 . 
+
+```
+
+
+```
+# 实际操作 : 
+
+1 . 启动容器  
+docker run -it -rm -v /Users/yanguangyuan/docker_file/:/tmp/ -p 8080:8080 -p 8081:8081  --name ygy  -d ygy:latest
+
+-it 是保证不退出容器
+
+-rm 是容器终止后会立刻删除。--rm参数和-d参数不能同时使用。
+
+覆盖命令 , 如果dockerfile里面是ENTRYPOINT,使用
+docker run --entrypoint="/bin/bash ..." ...，给出容器的新Shell
+
+如果dockerfile里面,是CMD
+docker run -it -rm  --name zgw -d 容器名 <新命令>
+
+2 . 删除容器
+docker stop <容器id> 
+docker rm <容器id>
+
 
 ```
 

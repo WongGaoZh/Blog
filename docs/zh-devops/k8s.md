@@ -53,5 +53,12 @@ kubectl describe service dianxin-vehicle
 
 # 查看那k8s中 service(端口服务的情况 )
 kubectl get svc
+
+
+# 配置相关的资料(项目的配置文件通过configmap配置进去)
+kubectl get configmaps  // 查看
+
+kubectl edit configmaps aibase-console-hub // 编辑
+
 ```
 
