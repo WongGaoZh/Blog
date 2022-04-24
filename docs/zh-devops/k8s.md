@@ -38,6 +38,8 @@ kubectl get ns
 
 # 查看pod的log
 kubectl logs pod
+kubectl logs --tail 100 -f  pod
+
 
 # 检查集群状态
 kubectl get nodes
