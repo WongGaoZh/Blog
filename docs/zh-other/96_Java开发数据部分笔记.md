@@ -22,8 +22,10 @@ StringUtils.isNotEmpty(str);
 StringUtils.isBlank();  
 StringUtils.isBlank 比isEmpty多的是,假如有空格,isBlank依旧可以判断出来
 
-# 集合判空
+# 集合判空-list
 CollectionUtils.isEmpty();
+# map判null 
+MapUtils.isEmpty()
 
 ```
 
