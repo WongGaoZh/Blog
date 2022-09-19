@@ -1,4 +1,4 @@
-# kubeadm 搭建集群
+# kubeadm 搭建集群 <!-- {docsify-ignore-all} -->
 
 ## 1、硬件配置
 建议至少2 cpu ,2G，非硬性要求，1cpu，1G也可以搭建起集群。但是：

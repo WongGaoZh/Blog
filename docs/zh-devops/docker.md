@@ -1,4 +1,4 @@
-# docker使用
+# docker使用 <!-- {docsify-ignore-all} -->
 
 ## docker概念知识
 

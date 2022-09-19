@@ -1,4 +1,4 @@
-# k8s原理和命令
+# k8s原理和命令 <!-- {docsify-ignore-all} -->
 
 ## k8s原理
 https://blog.csdn.net/qq_40378034/article/details/104884825
