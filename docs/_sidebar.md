@@ -37,12 +37,13 @@
 
   - **分布式和高并发**
   * [50 分布式锁](zh-lock/分布式锁.md)
-* [**六 性能优化**](zh-optimize/) 
+* **六 性能优化**
   + [JVM学习大纲](zh-optimize/10_JVM学习大纲.md)
   + [类加载子系统](zh-optimize/11_JVM_类加载子系统.md)
   + [JVM运行时数据区](zh-optimize/12_运行时数据区.md)
+  + [JVM运行时数据区_堆](zh-optimize/12_运行时数据区_堆.md)
+  + [JVM运行时数据区_方法区](zh-optimize/12_运行时数据区_方法区.md)
   + [执行引擎](zh-optimize/13_执行引擎.md)
-  + [jvm调优](zh-optimize/10_jvm.md)
   + [现场服务器问题排查](zh-optimize/11_现场服务器问题排查方法.md)
 * [**七 算法**](zh-algorithm/)   
   + [数据结构](/zh-algorithm/data.md)
