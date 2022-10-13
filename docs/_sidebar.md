@@ -44,6 +44,8 @@
   + [JVM运行时数据区_堆](zh-optimize/12_运行时数据区_堆.md)
   + [JVM运行时数据区_方法区](zh-optimize/12_运行时数据区_方法区.md)
   + [执行引擎](zh-optimize/13_执行引擎.md)
+  + [jvm垃圾回收算法](zh-optimize/14_jvm垃圾回收算法.md)
+  + [jvm垃圾回收器](zh-optimize/15_jvm垃圾回收器.md)
   + [现场服务器问题排查](zh-optimize/11_现场服务器问题排查方法.md)
 * [**七 算法**](zh-algorithm/)   
   + [数据结构](/zh-algorithm/data.md)

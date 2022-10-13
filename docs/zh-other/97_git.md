@@ -46,6 +46,28 @@ git rebase–interactive  交互式分支变基
 
 ```
 
+```shell
+## 从其他分支把代码拿过来
+git cherry-pick命令
+1.执行cherry-pick命令 git cherry-pick <commitid1>..<commitid2>  范围里面,左开右闭
+2.有冲突使用git status命令查看
+解决冲突文件: application.properties
+
+3.解决完后标记已解决
+ git add id-gate/src/main/resources/application.properties
+
+4.解决后（执行 "git cherry-pick --continue" 以继续）
+5.一直重复上述步骤
+```
+
+```shell
+# 压缩提交commit
+1.找一个节点 执行  git rebase -i 1984a642
+2.把第二个pick到最后一个pick都改成squash   退出编辑 : wq
+3.会提示一个commit信息修改好了, 退出编辑 :wq
+
+```
+
 ```shell script
 
 # gitpush失败,报错443的时候
