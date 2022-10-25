@@ -36,11 +36,12 @@ MyISAM索引文件和数据文件是分离的(非聚集)
 InnoDB存储引擎索引实现(聚集)
 
 InnoDB索引实现(聚集)
-表数据文件本身就是按B+Tree组织的一个索引结构文件
-聚集索引-叶节点包含了完整的数据记录
-为什么建议InnoDB表必须建主键，并且推荐使用整型的自增主键？
-为什么非主键索引结构叶子节点存储的是主键值？(一致性和节省存储空间)
-主键索引 : 
++ 表数据文件本身就是按B+Tree组织的一个索引结构文件
++ 聚集索引-叶节点包含了完整的数据记录
++ 为什么建议InnoDB表必须建主键，并且推荐使用整型的自增主键？
++ 为什么非主键索引结构叶子节点存储的是主键值？(一致性和节省存储空间)
+
++ 主键索引 : 
 ![image](./assets/02.png)
 非主键索引 : 
 ![image](./assets/03.png)
@@ -60,4 +61,9 @@ InnoDB索引实现(聚集)
 | | select * from table where b = '1' and c= ‘2’ | N | 都用不上 | 
 
 
+
+## 扩展
+可以生成红黑树的可视化网站 : https://www.cs.usfca.edu/~galles/visualization/RedBlack.html
+
+数据结构可视化网站 :https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 
