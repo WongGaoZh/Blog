@@ -48,7 +48,7 @@ CALL insert_emp ( )
 EXPLAIN SELECT * FROM employees WHERE name > 'LiLei' AND age = 22 AND position ='manager';
 ```
 
-![image](./assets/05.png)
+![image](assets/other/05.png)
 
 结论：联合索引第一个字段就用范围查找不会走索引，mysql内部可能觉得第一个字段就用范围，结果集应该很大，回表效率不高，还不 如就全表扫描
 
@@ -57,7 +57,7 @@ EXPLAIN SELECT * FROM employees WHERE name > 'LiLei' AND age = 22 AND position =
 EXPLAIN SELECT * FROM employees force index(idx_name_age_position) WHERE name > 'LiLei' AND age = 22 A ND position ='manager'
 
 ```
-![image](./assets/06.png)
+![image](assets/other/06.png)
 
 结论：虽然使用了强制走索引让联合索引第一个字段范围查找也走索引，扫描的行rows看上去也少了点，但是最终查找效率不一定比全表 扫描高，因为回表效率不高
 做了一个小实验：
@@ -76,43 +76,43 @@ SELECT * FROM employees force index(idx_name_age_position) WHERE name > 'LiLei';
 EXPLAIN SELECT name,age,position FROM employees WHERE name > 'LiLei' AND age = 22 AND position ='manag er';
 ```
 
-![image](./assets/07.png)
+![image](assets/other/07.png)
 
 4、in和or在表数据量比较大的情况会走索引，在表记录不多的情况下会选择全表扫描
 ```aidl
 EXPLAIN SELECT * FROM employees WHERE name in ('LiLei','HanMeimei','Lucy') AND age = 22 AND position ='manager';
 ```
 
-![image](./assets/09.png)
+![image](assets/other/09.png)
 
 ```aidl
 EXPLAIN SELECT * FROM employees WHERE (name = 'LiLei' or name = 'HanMeimei') AND age = 22 AND position ='manager';
 ```
-![image](./assets/10.png)
+![image](assets/other/10.png)
 
 做一个小实验，将employees 表复制一张employees_copy的表，里面保留两三条记录
 ```aidl
 EXPLAIN SELECT * FROM employees_copy WHERE name in ('LiLei','HanMeimei','Lucy') AND age = 22 AND posit ion ='manager';
 ```
 
-![image](./assets/11.png)
+![image](assets/other/11.png)
 
 ```aidl
  EXPLAIN SELECT * FROM employees_copy WHERE (name = 'LiLei' or name = 'HanMeimei') AND age = 22 AND pos ition ='manager';
 
 ```
 
-![image](./assets/12.png)
+![image](assets/other/12.png)
 
 5、like KK% 一般情况都会走索引
 ```aidl
 EXPLAIN SELECT * FROM employees WHERE name like 'LiLei%' AND age = 22 AND position ='manager';
 ```
-![image](./assets/13.png)
+![image](assets/other/13.png)
 
 EXPLAIN SELECT * FROM employees_copy WHERE name like 'LiLei%' AND age = 22 AND position ='manager';
 
-![image](./assets/14.png)
+![image](assets/other/14.png)
 
 这里给大家补充一个概念，索引下推（Index Condition Pushdown，ICP）, like KK%其实就是用到了索引下推优化 什么是索引下推了？ 对于辅助的联合索引(name,age,position)，正常情况按照最左前缀原则，SELECT * FROM employees WHERE name like 'LiLei%' AND age = 22 AND position ='manager' 这种情况只会走name字段索引，因为根据name字段过滤完，得到的索引行里的age和 position是无序的，无法很好的利用索引。 在MySQL5.6之前的版本，这个查询只能在联合索引里匹配到名字是 'LiLei' 开头的索引，然后拿这些索引对应的主键逐个回表，到主键索 引上找出相应的记录，再比对age和position这两个字段的值是否符合。 MySQL 5.6引入了索引下推优化，可以在索引遍历过程中，对索引中包含的所有字段先做判断，过滤掉不符合条件的记录之后再回表，可 以有效的减少回表次数。使用了索引下推优化后，上面那个查询在联合索引里匹配到名字是 'LiLei' 开头的索引之后，同时还会在索引里过 滤age和position这两个字段，拿着过滤完剩下的索引对应的主键id再回表查整行数据。 索引下推会减少回表次数，对于innodb引擎的表索引下推只能用于二级索引，innodb的主键索引（聚簇索引）树叶子节点上保存的是全 行数据，所以这个时候索引下推并不会起到减少查询全行数据的效果。
 
@@ -124,18 +124,18 @@ Mysql如何选择合适的索引
 
 > EXPLAIN select * from employees where name > 'a';
 
-![image](./assets/15.png)
+![image](assets/other/15.png)
 
 如果用name索引需要遍历name字段联合索引树，然后还需要根据遍历出来的主键值去主键索引树里再去查出最终数据，成本比全表扫描 还高，可以用覆盖索引优化，这样只需要遍历name字段的联合索引树就能拿到所有结果，如下：
  
 >EXPLAIN select name,age,position from employees where name > 'a' ;
-![image](./assets/16.png)
+![image](assets/other/16.png)
 
 如果用name索引需要遍历name字段联合索引树，然后还需要根据遍历出来的主键值去主键索引树里再去查出最终数据，成本比全表扫描 还高，可以用覆盖索引优化，这样只需要遍历name字段的联合索引树就能拿到所有结果，如下：
 >EXPLAIN select name,age,position from employees where name > 'a' ;
-![image](./assets/17.png)
+![image](assets/other/17.png)
 > EXPLAIN select * from employees where name > 'zzz'
-![image](./assets/18.png)
+![image](assets/other/18.png)
 
 对于上面这两种 name>'a' 和 name>'zzz' 的执行结果，mysql最终是否选择走索引或者一张表涉及多个索引，mysql最 终如何选择索引，我们可以用trace工具来一查究竟，开启trace工具会影响mysql性能，所以只能临时分析sql使用，用 完之后立即关闭
 
@@ -379,57 +379,57 @@ set session optimizer_trace="enabled=on",end_markers_in_json=on; ‐‐开启tra
 常见sql深入优化 
 Order by与Group by优化 
 Case1：
-![image](./assets/19.png)
+![image](assets/other/19.png)
 
 分析： 利用最左前缀法则：中间字段不能断，因此查询用到了name索引，从key_len=74也能看出，age索引列用 在排序过程中，因为Extra字段里没有using filesort
 
 Case 2：
 
-![image](./assets/20.png)
+![image](assets/other/20.png)
 
 分析： 从explain的执行结果来看：key_len=74，查询使用了name索引，由于用了position进行排序，跳过了 age，出现了Using filesort。
 
 Case 3：
 
-![image](./assets/21.png)
+![image](assets/other/21.png)
 
 分析： 查找只用到索引name，age和position用于排序，无Using filesort。
 
 Case 4：
 
-![image](./assets/22.png)
+![image](assets/other/22.png)
 
 分析： 和Case 3中explain的执行结果一样，但是出现了Using filesort，因为索引的创建顺序为 name,age,position，但是排序的时候age和position颠倒位置了。
 
 
 Case 5：
 
-![image](./assets/23.png)
+![image](assets/other/23.png)
 
 分析： 与Case 4对比，在Extra中并未出现Using filesort，因为age为常量，在排序中被优化，所以索引未颠倒， 不会出现Using filesort。
 
 
 Case 6：
 
-![image](./assets/24.png)
+![image](assets/other/24.png)
 
 分析： 虽然排序的字段列与索引顺序一样，且order by默认升序，这里position desc变成了降序，导致与索引的 排序方式不同，从而产生Using filesort。Mysql8以上版本有降序索引可以支持该种查询方式。
 
 
 Case 7：
 
-![image](./assets/25.png)
+![image](assets/other/25.png)
 
 分析： 对于排序来说，多个相等条件也是范围查询
 
 
 Case 8：
 
-![image](./assets/26.png)
+![image](assets/other/26.png)
 
 可以用覆盖索引优化
 
-![image](./assets/27.png)
+![image](assets/other/27.png)
 
 优化总结： 
 

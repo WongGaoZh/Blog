@@ -30,7 +30,7 @@ innodb存储引擎 : .frm文件来存储表结构, .ibd文件产生的存放该�
 MyISAM存储引擎索引实现
 MyISAM索引文件和数据文件是分离的(非聚集)
 
-![image](./assets/01.png)
+![image](assets/other/01.png)
 
 
 InnoDB存储引擎索引实现(聚集)
@@ -42,16 +42,16 @@ InnoDB索引实现(聚集)
 + 为什么非主键索引结构叶子节点存储的是主键值？(一致性和节省存储空间)
 
 + 主键索引 : 
-![image](./assets/02.png)
+![image](assets/other/02.png)
 非主键索引 : 
-![image](./assets/03.png)
+![image](assets/other/03.png)
 
 
 索引最左前缀原理 --(底层原理是联合索引)
 
 联合索引的底层存储结构长什么样 
 
-![image](./assets/04.png)
+![image](assets/other/04.png)
 所以我们建立联合索引的时候, 考虑是否使用索引的几种情况 ( 需要结合联合索引树的底层结构去考虑索引是否会走 ) 
 
 | | sql语句 | 是否走索引  | 描述 | 
