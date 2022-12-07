@@ -27,7 +27,7 @@
   + [04_链路追踪](../zh-spring/04_链路追踪.md)
   + [05_配置中心](../zh-spring/05_配置中心.md)
 * [**五 高并发和分布式**](zh-lock/)
-  - **多线程**
+  - **多线程和高并发**
   * [10 多线程](zh-lock/多线程.md)
   * [11_synchronized底层原理](zh-lock/synchronized底层原理.md)
   * [12_volatile底层原理](zh-lock/volatile.md)
@@ -35,8 +35,12 @@
   * [14_AQS底层原理](zh-lock/AQS.md)
   * [15_ReentrantLock底层原理](zh-lock/ReentrantLock.md)
 
-  - **分布式和高并发**
+  - **分布式框架**
   * [50 分布式锁](zh-lock/分布式锁.md)
+  * [100_redis的数据结构](zh-lock/redis的数据结构.md)
+
+  
+ 
 * **六 性能优化**
   + [JVM学习大纲](zh-optimize/10_JVM学习大纲.md)
   + [类加载子系统](zh-optimize/11_JVM_类加载子系统.md)
