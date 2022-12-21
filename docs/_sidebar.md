@@ -30,7 +30,9 @@
 
   - **分布式框架**
   * [50 分布式锁](zh-lock/分布式锁.md)
-  * [100_redis的数据结构](zh-lock/redis的数据结构.md)
+  * [redis的数据结构](zh-lock/100_redis的数据结构.md)
+  * [RocketMQ的原理和实战](zh-lock/RocketMQ.md)
+  * [RocketMQ的源码梳理](zh-lock/RocketMQ.md)
   * [Kafka原理和实践](zh-lock/Kafka原理和实践.md)
 
 
@@ -55,6 +57,7 @@
   + [jvm垃圾回收算法](zh-optimize/14_jvm垃圾回收算法.md)
   + [jvm垃圾回收器](zh-optimize/15_jvm垃圾回收器.md)
   + [现场服务器问题排查](zh-optimize/11_现场服务器问题排查方法.md)
+  + [Jprofiler使用](zh-optimize/Jprofiler使用.md)
 * [**七 算法**](zh-algorithm/)   
   + [数据结构](/zh-algorithm/data.md)
   + [遍历](/zh-algorithm/bianli.md)
@@ -83,7 +86,6 @@
     + [*** Java开发数据部分笔记](zh-other/96_Java开发数据部分笔记.md)
     + [git使用](zh-other/97_git.md)
     + [技术选型](zh-other/98_技术选型.md)
-    + [工具](zh-other/99_工具.md)
 
   - **工具类**
     + [破解软件资料](zh-other/101_破解软件资料.md)
