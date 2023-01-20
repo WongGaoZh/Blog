@@ -66,7 +66,7 @@
   + **原理篇**
     + [1_mysql原理_mysql底层数据结构](zh-database/1_mysql底层数据结构.md)
     + [2_mysql内部组件](zh-database/2_mysql内部组件.md)
-    + [3_explian使用](zh-database/3_explian使用.md)
+    + [3_Explain工具使用](zh-database/3_explian使用.md)
 
   + **实战篇**
     + [101_mysql索引实战](zh-database/101_mysql索引实战.md)

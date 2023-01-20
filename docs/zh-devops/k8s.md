@@ -64,3 +64,12 @@ kubectl edit configmaps aibase-console-hub // 编辑
 
 ```
 
+## 使用xargs 删除不要的pod
+```aidl
+kubectl get po | grep Terminating
+
+kubectl get po | grep Terminating | awk '{print $1}'
+
+
+kubectl get po | grep Terminating | awk '{print $1}' | xargs kubectl get po
+```
