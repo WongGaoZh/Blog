@@ -30,6 +30,10 @@ kubectl get pods --namespace acg-voice
 #  查看pod报什么错
 kubectl describe po <pod名称>
 
+# 进入k8s容器
+kubectl exec -it -n {namespace}  my-container  /bin/bash
+
+
 # 查看pod
 kubectl get pods --namespace acg-voice
 

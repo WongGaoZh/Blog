@@ -1,6 +1,21 @@
 ##  索引没加好,导致的接口请求慢
 
+### 现象
+有一天测试同学反馈有一个接口单独请求正常时间, , 压测测试没有通过, 去排查问题
 
+压测过程 : 对接口进行压测, 压测为单个服务, 每秒300个请求,压测时间15分钟.
+
+查看了一下数据库的慢查询语句 发现了 select count(*) from table在多线程下时间会暴涨
+
+单次查询时间为 0.154s
+
+![img_1.png](img_1.png)
+
+在300QPS的压测情况下  为5秒 
+
+![img_2.png](img_2.png)
+
+在本地模拟了一份实验数据来排查问题.
 
 ### 模拟数据
 
@@ -84,24 +99,6 @@ call insert_code();
 ---
 ```
 
-
-### 现象
-有一天测试同学反馈有一个接口单独请求正常时间, , 压测测试没有通过, 去排查问题
-
-压测过程 : 对接口进行压测, 压测为单个服务, 每秒300个请求,压测时间15分钟. 
-
-查看了一下数据库的慢查询语句 发现了 select count(*) from table在多线程下时间会暴涨
-
-单次查询时间为 0.154s
-
-![img_1.png](img_1.png)
-
-在200QPS的压测情况下  为5秒
-
-![img_2.png](img_2.png)
-
-
-
 ### 原因
 使用EXPLAIN命令排查mysql的索引执行过程:
 
@@ -112,7 +109,6 @@ call insert_code();
 key 是IMATERIAl_UNIQUE_ID , 走的这个索引
 
 key_len 是 764 , 这里看了一下索引的数据类型 是varchar(254)
-
 
 这里明显发现问题了. 一个主键居然用了varchar(254)的长度, 导致key_len计算的时候这么长, 是有问题, 那么怎么优化, 
 优化这个key , 再找一个long类型的字段, 增加一个索引, 看一下是否命中新建的索引
@@ -127,7 +123,6 @@ ALTER TABLE `material` ADD INDEX IX_MATERIAL_ISMEMORABILIA (`ismemorabilia`);
 
 可以看到现在的key_len已经是5了, 优化了不少再次测试一下性能
 
-
 ![img_5.png](img_5.png)
 
 但是性能还是很差
@@ -140,9 +135,25 @@ ALTER TABLE `material` ADD INDEX IX_MATERIAL_ISMEMORABILIA (`ismemorabilia`);
 ALTER TABLE `material` ADD INDEX IX_MATERIAL_PRO_ISM_DEL_FCR (`projectid`,`ismemorabilia`,`deletestatus`,`createTime`);
 ```
 
+那么修改sql为
 
+```aidl
+select count(1) from material where projectid = '74b4bd0a-4878-fdeb-fbb6-2826a5c0565b' and ismemorabilia =100 ;
+```
+这时候我们看一下执行计划可以看出来 
+
+![img_6.png](img_6.png)
+
+现在的type 已经是ref级别的了.
+
+拿每秒300qps的并发去看一下现在的相应时间是多少, 可以看出现在的响应时间已经缩短了一半多:
+
+![img_7.png](img_7.png)
 
 ### 解决办法
+1. 优化索引，让type和key_len 尽量能优化到极致。
+2. 如果索引已经不能优化，那么是否可以从业务角度去减少数据量来实现优化。
+3. 如果上面都不满足，那么可以考虑使用缓存等技术来提升性能。
 
 
 

@@ -5,10 +5,11 @@
   * [02、行为型模式总结](zh-design/behavior.md)
   * [03、结构型设计模式](zh-design/structural.md)
 * [**二 源码分析**](zh-sound/)   
-  - **源码分析**
+  - **网络通信和IO**
+    * [网络协议](zh-sound/网络协议.md)
     * [http请求原理](zh-sound/http.md)
     * [BIO和NIO还有AIO的区别](zh-sound/BIO和NIO还有AIO的区别.md)
-    * [网络协议](zh-sound/网络协议.md)
+    * [Netty原理](zh-sound/Netty原理.md)
   - **spring源码分析**
     * [Springboot的原理](zh-sound/springboot.md)
     * [springmvc的原理](zh-sound/springmvc的原理.md)
@@ -75,6 +76,8 @@
     + [104_mysql_事务隔离级别MVCC机制](zh-database/104_mysql_事务隔离级别MVCC机制.md)
     + [199_mysql慢查询](zh-database/199_mysql慢查询.md)
     + [200_docker安装mysql并挂载到宿主机上](zh-database/100_docker安装mysql并挂载到宿主机上.md)
+    + [mysql线上问题排查](zh-database/201_mysql线上问题排查.md)
+    + [mysql线上问题排查_sharding sphere问题](zh-database/202_mysql线上问题排查2.md)
 * [**九 其他**](zh-other/)
   + [01_Json框架选型](zh-other/01_Json框架选型.md)
 

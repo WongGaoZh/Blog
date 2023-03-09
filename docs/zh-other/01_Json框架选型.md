@@ -8,55 +8,56 @@ jackson的ObjectMapper实例化是一个性能瓶颈，如果提前准备好实�
 
 ### jackson的一些使用
 
-java 把对象变成map 
+```aidl
+
+
+# java 把对象变成map 
 Map<String, Object> xstbJLMap = objectMapper.readValue(objectMapper.writeValueAsString(xstbJL), Map.class);
 
 
-
-java 把json变成java对象 
+# java 把json变成java对象 
 xstbJL xstbJL = objectMapper.readValue(objectMapper.writeValueAsString(xstbJL), xstbJL.class);
 
 
-JSON数组字符串–>List
+# JSON数组字符串–>List
 
 String jsonArray = "[{\"brand\":\"ford\"}, {\"brand\":\"Fiat\"}]";
+
 ObjectMapper objectMapper = new ObjectMapper();
+
 List<Car> cars1 = objectMapper.readValue(jsonArray, new TypeReference<List<Car>>(){});
 
-
-把java对象->JSON
+# 把java对象->JSON
 objectMapper.writeValueAsString(xstbJL)
 
-
-
+```
 
 ### fastjson的一些使用
-
+```
 把对象变成map
 //把对象变成map
 Map<String, Object> map1 = JSONObject.parseObject(JSON.toJSONString(realTimeData));
 
-
 ----------------------
-将json字符串转换为json对象：
+// 将json字符串转换为json对象：
 JSONObject jsonObject = JSONObject.fromObject(jsonStr);
 
-将java对象转换为json对象：
+// 将java对象转换为json对象：
 JSONObject json = JSONObject.fromObject(obj);
 
-将json对象转换为java对象：
+// 将json对象转换为java对象：
 Person jb = (Person) JSONObject.toBean(obj,Person.class);
 
-将String的对象变成map对象
+// 将String的对象变成map对象
 JSONObject.parseObject(data, Map.class)
 
-String 变成 java对象
+// String 变成 java对象
 JSONObject p = JSON.parseObject(params);
 UploadParam param = JSON.toJavaObject(p, UploadParam.class);
 
 把java对象变成String
 JSONObject.toJSONString(sxtb)
-
+```
 
 前端转换功能
 
