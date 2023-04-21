@@ -6,6 +6,9 @@
 * [14_AQS底层原理](zh-lock/AQS.md)
 * [15_ReentrantLock底层原理](zh-lock/ReentrantLock.md)
 
+## 多线程实践
+* [50_多线程调用任务并聚合](zh-lock/CompletableFuture.md)
+
 ## 分布式和高并发
 * [50 分布式锁](zh-lock/分布式锁.md)
 

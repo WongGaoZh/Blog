@@ -34,7 +34,6 @@ objectMapper.writeValueAsString(xstbJL)
 
 ### fastjson的一些使用
 ```
-把对象变成map
 //把对象变成map
 Map<String, Object> map1 = JSONObject.parseObject(JSON.toJSONString(realTimeData));
 
