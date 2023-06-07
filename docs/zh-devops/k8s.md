@@ -35,7 +35,10 @@ kubectl exec -it -n {namespace}  my-container  /bin/bash
 
 
 # 查看pod
-kubectl get pods --namespace acg-voice
+kubectl get pods --namespace <ns> -w
+# 查看pod , 添加上-w的话 , 会一直监控pod 有变化则打印
+kubectl get pods --namespace <ns> -w
+
 
 # 查看命名空间
 kubectl get ns
@@ -64,7 +67,12 @@ kubectl get svc
 # 配置相关的资料(项目的配置文件通过configmap配置进去)
 kubectl get configmaps  // 查看
 
-kubectl edit configmaps aibase-console-hub // 编辑
+kubectl edit configmaps aibase-console-hub // 编辑 
+
+# 查看pod的yaml文件
+kubectl get pod -n <ns> <pod> -o yaml
+kubectl get pod -n <ns> <pod> -o yaml > pod.yaml
+kubectl edit pod -n <ns> <pod> -o yaml
 
 ```
 

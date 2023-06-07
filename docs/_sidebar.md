@@ -81,6 +81,7 @@
     + [mysql线上问题排查_sharding sphere问题](zh-database/202_mysql线上问题排查2.md)
 * [**九 其他**](zh-other/)
   + [01_Json框架选型](zh-other/01_Json框架选型.md)
+  + [01_java里面的classpath是什么以及怎么在程序中使用](zh-other/01_java里面的classpath是什么以及怎么在程序中使用.md)
 
   + **其他工具**
     + [linux命令1](zh-other/91_linux命令1.md)
