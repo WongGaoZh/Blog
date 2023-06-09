@@ -51,15 +51,7 @@ public class Math {
 保证一个JVM虚拟机内只有一个 sun.misc.Launcher实例。 在Launcher构造方法内部，其创建了两个类加载器，分别是 sun.misc.Launcher.ExtClassLoader(扩展类加载器)和sun.misc.Launcher.AppClassLoader(应用类加载器)。 
 JVM默认使用Launcher的getClassLoader()方法返回的类加载器AppClassLoader的实例加载我们的应用程序
 
-### 双亲委派机制
 
-![img_2.png](img_2.png)
-
-这里类加载其实就有一个双亲委派机制，加载某个类时会先委托父加载器寻找目标类，找不到再 委托上层父加载器加载，如果所有父加载器在自己的加载类路径下都找不到目标类，则在自己的 类加载路径中查找并载入目标类。
-
-为什么要设计双亲委派机制？ 
-+ 沙箱安全机制：自己写的java.lang.String.class类不会被加载，这样便可以防止核心 API库被随意篡改 
-+ 避免类的重复加载：当父亲已经加载了该类时，就没有必要子ClassLoader再加载一 次，保证被加载类的唯一性
 
 ### 类的加载过程中准备和初始化 (单独介绍)
 
@@ -177,7 +169,43 @@ Hello ShuYi.
 类初始化方法 和 对象初始化方法 之后，我们再来看这个例子，我们就不难得出上面的答案了。
 
 
+### 双亲委派机制
 
+![img_2.png](img_2.png)
+
+这里类加载其实就有一个双亲委派机制，加载某个类时会先委托父加载器寻找目标类，找不到再 委托上层父加载器加载，如果所有父加载器在自己的加载类路径下都找不到目标类，则在自己的 类加载路径中查找并载入目标类。
+
+为什么要设计双亲委派机制？
++ 沙箱安全机制：自己写的java.lang.String.class类不会被加载，这样便可以防止核心 API库被随意篡改
++ 避免类的重复加载：当父亲已经加载了该类时，就没有必要子ClassLoader再加载一 次，保证被加载类的唯一性
+
+### 如何打破双亲委派机制
+破坏双亲委派有两种方式：
+
+第一种，自定义类加载器，必须重写findClass和loadClass；
+>Tomcat 就是自定义了类加载器WebappClassLoader重写了findClass和loadClass
+WebappClassLoader.loadClass中会先在缓存中查看类是否加载过，没有加载，就交给ExtClassLoader，ExtClassLoader再交给BootstrapClassLoader加载；都加载不了，才自己加载；自己也加载不了，就遵循原始的双亲委派，交由AppClassLoader递归加载。
+
+第二种是通过线程上下文类加载器的传递性，让父类加载器中调用子类加载器的加载动作。
+>其实是一种类加载器传递机制。可以通过java.lang.Thread#setContextClassLoader方法给一个线程设置上下文类加载器，在该线程后续执行过程中就能把这个类加载器取（java.lang.Thread#getContextClassLoader）出来使用。
+
+
+### SPI机制是什么以及原理 
+简单来说，就是你定义了一个接口，但是不提供实现，接口实现由其他系统应用实现。你只需要提供一种可以找到其他系统提供的接口实现类的能力或者说机制
+
+根据类加载的双亲委派原理得知，jvm在加载java.sql.Driver类时，会优先给Bootstarp类加载器去加载。但是Bootstarp类加载器只会加载jdk下的jar包和类（虚拟机按名称识别，不在虚拟机识别文件列表中的jar包不会加载）。而mysql提供的具体驱动程序实现类则是外部jar包。
+
+通过线程上下文类加载器实现
+
+```java
+        //获取当前线程
+        Thread thread = Thread.currentThread();
+        //获取线程上下文类加载器
+        ClassLoader classLoader = thread.getContextClassLoader();
+        //设置线程上下文类加载器
+        thread.setContextClassLoader(null);
+```
+因为默认的是Application类加载器,所以使得虚拟机在加载java.sql.Driver类时，可以通过当前线程，获取Application类加载器，然后找到第三方jar包。这样上面的问题解决了
 
 
 

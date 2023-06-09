@@ -7,6 +7,7 @@
 * [**二 源码分析**](zh-sound/)   
   - **网络通信和IO**
     * [网络协议](zh-sound/网络协议.md)
+    * [NIO,Socket,Netty,RPC都是什么](zh-sound/NIO,Socket,Netty,RPC都是什么.md)
     * [http请求原理](zh-sound/http.md)
     * [BIO和NIO还有AIO的区别](zh-sound/BIO和NIO还有AIO的区别.md)
     * [Netty原理](zh-sound/Netty原理.md)
@@ -44,7 +45,6 @@
   * [12_volatile底层原理](zh-lock/volatile.md)
   * [13_CAS底层原理](zh-lock/CAS.md)
   * [14_AQS底层原理](zh-lock/AQS.md)
-  * [15_ReentrantLock底层原理](zh-lock/ReentrantLock.md)
   - **多线程实践**
   * [50_多线程调用任务并聚合](zh-lock/CompletableFuture.md)
 

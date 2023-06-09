@@ -15,17 +15,17 @@ store：消息存储实现相关类
 
 #### 2 、源码调试
 将源码导入IDEA后，需要先对源码进行编译。编译指令 clean install -Dmaven.test.skip=true
-![img.png](img.png)
+![img.png](assets/others/img.png)
 
 编译完成后就可以开始调试代码了。调试时需要按照以下步骤：
 调试时，先在项目目录下创建一个conf目录，并从distribution拷贝
 broker.conf和logback_broker.xml和logback_namesrv.xml
-![img_1.png](img_1.png)
+![img_1.png](assets/others/img_1.png)
 
 ####  启动nameServer
 展开namesrv模块，运行NamesrvStartup类即可启动NameServer
 启动时，会报错，提示需要配置一个ROCKETMQ_HOME环境变量。这个环境变量我们可以在机器上配置，跟配置JAVA_HOME环境变量一样。也可以在IDEA的运行环境中配置。目录指向源码目录即可
-![img_2.png](img_2.png)
+![img_2.png](assets/others/img_2.png)
 
 配置完成后，再次执行，看到以下日志内容，表示NameServer启动成功
 The Name Server boot success. serializeType=JSON
@@ -85,7 +85,7 @@ consumer.setNamesrvAddr("192.168.232.128:9876");
 我们已经了解到，在RocketMQ中，实际进行消息存储、推送等核心功能的是Broker。那NameServer具体做什么用呢？NameServer的核心作用其实就只有两个，一是维护Broker的服务地址并进行及时的更新。二是给Producer和Consumer提供服务获取Broker列表。
 整体的流程：
 
-![img_3.png](img_3.png)
+![img_3.png](assets/others/img_3.png)
 
 #### 源码重点
 整个NameServer的核心就是一个NamesrvController对象。这个controller对象就跟java Web开发中的Controller功能类似，都是响应客户端请求的。
@@ -95,7 +95,7 @@ consumer.setNamesrvAddr("192.168.232.128:9876");
 在关闭服务时，关闭了四个东西remotingServer，响应请求的服务；remotingExecutor Netty服务线程池; scheduledExecutorService 定时任务;fileWatchService 这个是用来跟踪acl配置的(acl的配置文件是实时热加载的)。
 所以整个NameServer的结构是这样：
 
-![img_4.png](img_4.png)
+![img_4.png](assets/others/img_4.png)
 
 ### Broker启动
 
