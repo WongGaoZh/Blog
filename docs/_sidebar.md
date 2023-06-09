@@ -60,10 +60,12 @@
   + [jvm垃圾回收器](zh-optimize/15_jvm垃圾回收器.md)
   + [现场服务器问题排查](zh-optimize/11_现场服务器问题排查方法.md)
   + [Jprofiler使用](zh-optimize/Jprofiler使用.md)
+  
 * [**七 算法**](zh-algorithm/)   
   + [数据结构](/zh-algorithm/data.md)
-  + [遍历](/zh-algorithm/bianli.md)
-  + [数组算法题](/zh-algorithm/arrays.md)
+  + [排序算法](/zh-algorithm/sort.md)
+  
+
 * [**八 数据库**](zh-database/)   
   + **原理篇**
     + [1_mysql原理_mysql底层数据结构](zh-database/1_mysql底层数据结构.md)
