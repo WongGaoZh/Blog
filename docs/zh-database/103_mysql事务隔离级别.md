@@ -81,9 +81,7 @@ INSERT INTO `test`.`account` (`name`, `balance`) VALUES ('lucy', '2400');
 
 >set tx_isolation='read-uncommitted';
 
-开启事务 ,查看account表里面的数据 , 
-
-![img.png](assets/104/img.png)
+开启事务 ,查看account表里面的数据 ,
 
 ![img_1.png](assets/103/img_1.png)
 
