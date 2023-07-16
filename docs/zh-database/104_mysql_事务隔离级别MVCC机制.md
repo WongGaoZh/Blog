@@ -6,24 +6,6 @@ Mysql在可重复读隔离级别下如何保证事务较高的隔离性，同样
 
 Mysql在读已提交和可重复读隔离级别下都实现了MVCC机制。
 
-## MVCC是什么， read-view是啥
-了解两个前提的知识 ： 
-+ Read View 中四个字段作用；
-+ 聚簇索引记录中两个跟事务有关的隐藏列；
-  ![img.png](assets/104/img_1.png)
-
-Read View 有四个重要的字段：
-
-+ m_ids ：指的是在创建 Read View 时，当前数据库中「活跃事务」的事务 id 列表，注意是一个列表，“活跃事务”指的就是，启动了但还没提交的事务。
-+ min_trx_id ：指的是在创建 Read View 时，当前数据库中「活跃事务」中事务 id 最小的事务，也就是 m_ids 的最小值。
-+ max_trx_id ：这个并不是 m_ids 的最大值，而是创建 Read View 时当前数据库中应该给下一个事务的 id 值，也就是全局事务中最大的事务 id 值 + 1；
-+ creator_trx_id ：指的是创建该 Read View 的事务的事务 id。
-
-
-聚簇索引记录中的两个隐藏列。
-![img.png](assets/104/img_2.png)
-
-
 undo日志版本链与read view机制详解
 
 undo日志版本链是指一行数据被多个事务依次修改过后，在每个事务修改完后，Mysql会保留修改前的数据undo回滚日志，并且用两个隐藏字段trx_id和roll_pointer把这些undo日志串联起来形成一个历史记录版本链(见下图，需参考视频里的例子理解)

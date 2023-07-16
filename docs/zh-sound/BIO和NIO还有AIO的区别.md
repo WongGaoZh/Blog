@@ -21,7 +21,15 @@ Linux的五种IO模型
 |     | 同步                  | 异步 |
 |-----|---------------------|--|
 | 阻塞  | 阻塞IO  (BIO)              | 空 |
-| 非阻塞 | 非阻塞IO模型  信号驱动IO模型 IO复用模型(NIO)  | 异步IO(AIO) |
+| 阻塞 | 非阻塞IO模型  信号驱动IO模型 IO复用模型(NIO)  | 异步IO(AIO) |
+
+#### linux IO模型原理图示
+
+![image](./assets/clipboard.png)
+
+发展过程1 :  阻塞IO, 这个时间段里面是数据没有返回时,我阻塞等着
+发展过程2 :  非阻塞IO, 数据没有返回,立刻返回,并不断的去轮询操作系统,看看数据准备好了没, 
+发展过程3 :  我定义一个多线程, 一个多线程绑定
 
 
 #### JavaIO模型的原理:
@@ -45,9 +53,7 @@ NIO 主要有三大核心部分：**Channel(通道)，Buffer(缓冲区), Selecto
 
 3、NIO 的 Buffer 和 channel 都是既可以读也可以写
 
-#### linux IO模型原理图示
 
-![image](./assets/clipboard.png)
 
 ### 源码分析
 
@@ -66,7 +72,7 @@ NIO 主要有三大核心部分：**Channel(通道)，Buffer(缓冲区), Selecto
 
 BIO 方式适用于连接数目比较小且固定的架构， 这种方式对服务器资源要求比较高， 但程序简单易理解。
 
-#### NIO模型
+#### java 中的 NIO模型
 
 同步非阻塞，服务器实现模式为**一个线程可以处理多个请求(连接)**，客户端发送的连接请求都会注册到多路复用器selector上，多路复用
 器轮询到连接有IO请求就进行处理，JDK1.4开始引入。
@@ -76,7 +82,8 @@ BIO 方式适用于连接数目比较小且固定的架构， 这种方式对服
 ![img_1.png](assets/io和netty/img_1.png)
 
 NIO底层在JDK1.4版本是用linux的内核函数select()或poll()来实现，跟上面的NioServer代码类似，selector每次都会轮询所有的
-sockchannel看下哪个channel有读写事件，有的话就处理，没有就继续遍历，JDK1.5开始引入了epoll基于事件响应机制来优化NIO。
+sockchannel看下哪个channel有读写事件，有的话就处理，没有就继续遍历，
+JDK1.5开始引入了epoll基于事件响应机制来优化NIO。
 
 
 ### Hotspot和Linux内核函数代码示意图
