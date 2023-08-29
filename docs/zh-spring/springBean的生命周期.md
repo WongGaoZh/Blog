@@ -1,5 +1,24 @@
 ## spring  bean的生命周期
-spring bean的生命周期
+
+### spring bean生命周期
+
+![img_2.png](img_2.png)
+
++ 实例化bean对象--createBeanInstance方法
+ 通过反射创建对象,在堆内存里面开辟空间,属性都是默认值
++ 初始化bean对象
+    赋值操作-给自定义属性赋值:populateBean()
+    赋值操作-给容器对象赋值:invokeAwareMethods()
+    判断对象是否需要扩展操作
+    执行前置处理方法:beanPostProcesssor
+    执行初始化方法:invokeinitmethods()->判断当前是否实现了initilizingBean接口->afterPropertiesSet
+    执行后置处理方法: beanPostProcesssor
+
++ 使用bean对象
++ bean对象的销毁
+
+
+### spring bean的更详细版生命周期（不容易记住，需要的时候看看）
 ```
 1.spring 容器完成扫描-----class-----beanDefinition---bdmap
 2.开始遍历这个map
@@ -20,7 +39,7 @@ spring bean的生命周期
 spring aop原理: 
 + AOP（面向切面）比如你写了个方法用来做一些事情，但这个事情要求登录用户才能做，你就可以在这个方法执行前验证一下，执行后记录下操作日志
 + 这个类就是切面（Aspect），这个被环绕的方法就是切点（Pointcut），你所做的执行前执行后的这些方法统一叫做增强处理（Advice）。
-+ 面试的话，就得装B  所以必须得深化点，你得告诉他，aop实现原理其实是java动态代理，但是jdk的动态代理必须实现接口，所以spring的aop是用cglib这个库实现的，cglib使用了asm
++ 面试的话，就得说具体点。  所以必须得深化点，你得告诉他，aop实现原理其实是java动态代理，但是jdk的动态代理必须实现接口，所以spring的aop是用cglib这个库实现的，cglib使用了asm
 这个直接操纵字节码的框架，所以可以做到不实现接口的情况下完成动态代理。最好拿张纸手写两个例子给他，然后他就没什么好问的了
 + CgLib动态代理--首先要实现MethodInterceptor接口（interceptor是拦截器的意思）
 
@@ -40,6 +59,13 @@ enhancer.setCallback(new MyMethodInterceptor());
 
 
 ```
+
+### CGLIB创建动态代理类过程
+（1）查找目标类上的所有非final的public类型的方法定义；
+（2）将符合条件的方法定义转换成字节码；
+（3）将组成的字节码转换成相应的代理的class对象；
+（4）实现MethodInterceptor接口，用来处理对代理类上所有方法的请求。
+
 
 aop的缺陷 ：
 当service中的某个没标注@Transactional的方法调用另一个标注了@Transactional的方法时，居然没开启事务。例如

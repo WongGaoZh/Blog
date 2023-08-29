@@ -12,8 +12,9 @@
     * [BIO和NIO还有AIO的区别](zh-sound/BIO和NIO还有AIO的区别.md)
     * [Netty原理](zh-sound/Netty原理.md)
   - **spring源码分析**
-    * [Springboot的原理](zh-sound/springboot.md)
-    * [springmvc的原理](zh-sound/springmvc的原理.md)
+    * [Springboot的原理](zh-spring/springboot.md)
+    * [spring三级循环依赖](zh-spring/spring三级循环依赖.md)
+    * [springmvc的原理](zh-spring/springmvc的原理.md)
     * [类的加载和实例化区别和在jvm内存的过程](zh-sound/类的加载和实例化区别和在jvm内存的过程.md)
 * [**三 工程化工具**](zh-devops/)      
   * [docker](zh-devops/docker.md)

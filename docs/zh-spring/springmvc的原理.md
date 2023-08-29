@@ -8,12 +8,12 @@ springMVC是一个MVC的开源框架，springMVC=struts2+spring，springMVC就�
 jsp全称是java server page  本质是java代码整合html的代码
 
 而springmvc包括
-![image](assets/clipboard01.png)
+![image](../zh-sound/assets/clipboard01.png)
 
 所以可以看出来jsp只是springmvc的一个view层页面
 
 springmvc的原理
-![image](assets/clipboard02.png)
+![image](../zh-sound/assets/clipboard02.png)
 
 SpringMVC流程
 1、  用户发送请求至前端控制器DispatcherServlet。
