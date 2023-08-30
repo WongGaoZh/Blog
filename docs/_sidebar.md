@@ -10,6 +10,7 @@
     * [NIO,Socket,Netty,RPC都是什么](zh-sound/NIO,Socket,Netty,RPC都是什么.md)
     * [http请求原理](zh-sound/http.md)
     * [BIO和NIO还有AIO的区别](zh-sound/BIO和NIO还有AIO的区别.md)
+    * [零拷贝](zh-sound/零拷贝.md)
     * [Netty原理](zh-sound/Netty原理.md)
   - **spring源码分析**
     * [Springboot的原理](zh-spring/springboot.md)
@@ -78,7 +79,7 @@
     + [102_mysql索引实战2](zh-database/102_mysql索引实战2.md)
     + [103_mysql事务隔离级别](zh-database/103_mysql事务隔离级别.md)
     + [104_mysql_事务隔离级别MVCC机制](zh-database/104_mysql_事务隔离级别MVCC机制.md)
-    + [105_mysql日志和BufferPool](zh-database/105_mysql日志和BufferPool.md)
+    + [105_mysql日志和刷盘脏页机制](zh-database/105_mysql日志和刷盘脏页机制.md)
     + [199_mysql慢查询](zh-database/199_mysql慢查询.md)
     + [200_docker安装mysql并挂载到宿主机上](zh-database/100_docker安装mysql并挂载到宿主机上.md)
     + [mysql线上问题排查](zh-database/201_mysql线上问题排查.md)
@@ -94,11 +95,15 @@
     + [*** Java易混淆知识点(自看)](zh-other/95_Java易混淆知识点(自看).md)
     + [*** Java开发数据部分笔记](zh-other/96_Java开发数据部分笔记.md)
     + [git使用](zh-other/97_git.md)
-    + [技术选型](zh-other/98_技术选型.md)
+    + [技术选型](zh-other/98_技术选型.md)                       
 
   - **工具类**
     + [常用网址资料](zh-other/101_常用网址资料.md)
     + [linux服务器安装各种软件](zh-other/102_linux服务器安装各种软件.md)
     + [idea插件使用](zh-other/103_idea插件使用.md)
     + [mac软件安装](zh-other/300_mac软件安装.md)
- 
+    
+* [**十 架构相关**](zh-framework/)    
+  * [高性能](zh-framework/)
+  * [高可用](zh-framework/)
+  * [高扩展](zh-framework/)
