@@ -2,8 +2,9 @@
 
 ### spring bean生命周期
 
-![img_2.png](img_2.png)
+![img_2.png](./assets/spring/img_2.png)
 
+```java
 + 实例化bean对象--createBeanInstance方法
  通过反射创建对象,在堆内存里面开辟空间,属性都是默认值
 + 初始化bean对象
@@ -16,7 +17,7 @@
 
 + 使用bean对象
 + bean对象的销毁
-
+```
 
 ### spring bean的更详细版生命周期（不容易记住，需要的时候看看）
 ```
@@ -92,10 +93,10 @@ public class UserService {
 
 直接调用insert01(User u)时，其实流程是这样的：
 
-![img.png](img.png)
+![img.png](./assets/spring/img.png)
 
 也就是说controller或其他service首先调用的是AOP代理对象而不是目标对象，首先执行事务切面，事务切面内部通过TransactionInterceptor环绕增强进行事务的增强，即进入目标方法之前开启事务，退出目标方法时提交/回滚事务。
 
 controller或其他service调用insert02(User u)时，流程是这样的：
-![img_1.png](img_1.png)
+![img_1.png](./assets/spring/img_1.png)
 

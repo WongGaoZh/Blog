@@ -13,9 +13,10 @@
     * [零拷贝](zh-sound/零拷贝.md)
     * [Netty原理](zh-sound/Netty原理.md)
   - **spring源码分析**
-    * [Springboot的原理](zh-spring/springboot.md)
-    * [spring三级循环依赖](zh-spring/spring三级循环依赖.md)
-    * [springmvc的原理](zh-spring/springmvc的原理.md)
+    * [Springboot的原理](zh-sound/springboot.md)
+    * [springBean的生命周期](zh-sound/springBean的生命周期.md)
+    * [spring三级循环依赖](zh-sound/spring三级循环依赖.md)
+    * [springmvc的原理](zh-sound/springmvc的原理.md)
     * [类的加载和实例化区别和在jvm内存的过程](zh-sound/类的加载和实例化区别和在jvm内存的过程.md)
 * [**三 工程化工具**](zh-devops/)      
   * [docker](zh-devops/docker.md)
@@ -104,6 +105,6 @@
     + [mac软件安装](zh-other/300_mac软件安装.md)
     
 * [**十 架构相关**](zh-framework/)    
-  * [高性能](zh-framework/)
-  * [高可用](zh-framework/)
-  * [高扩展](zh-framework/)
+  * [高性能](zh-framework/high_performance.md)
+  * [高可用](zh-framework/high_available.md)
+  * [高扩展](zh-framework/high_scalability.md)
