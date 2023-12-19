@@ -190,9 +190,6 @@ WebappClassLoader.loadClass中会先在缓存中查看类是否加载过，没�
 >其实是一种类加载器传递机制。可以通过java.lang.Thread#setContextClassLoader方法给一个线程设置上下文类加载器，在该线程后续执行过程中就能把这个类加载器取（java.lang.Thread#getContextClassLoader）出来使用。
 
 
-### SPI机制是什么以及原理 
-简单来说，就是你定义了一个接口，但是不提供实现，接口实现由其他系统应用实现。你只需要提供一种可以找到其他系统提供的接口实现类的能力或者说机制
-
 根据类加载的双亲委派原理得知，jvm在加载java.sql.Driver类时，会优先给Bootstarp类加载器去加载。但是Bootstarp类加载器只会加载jdk下的jar包和类（虚拟机按名称识别，不在虚拟机识别文件列表中的jar包不会加载）。而mysql提供的具体驱动程序实现类则是外部jar包。
 
 通过线程上下文类加载器实现
@@ -206,6 +203,11 @@ WebappClassLoader.loadClass中会先在缓存中查看类是否加载过，没�
         thread.setContextClassLoader(null);
 ```
 因为默认的是Application类加载器,所以使得虚拟机在加载java.sql.Driver类时，可以通过当前线程，获取Application类加载器，然后找到第三方jar包。这样上面的问题解决了
+
+### SPI机制是什么以及原理
+简单来说，就是你定义了一个接口，但是不提供实现，接口实现由其他系统应用实现。你只需要提供一种可以找到其他系统提供的接口实现类的能力或者说机制
+
+具体实现为 ： 在META-INF/services目录下面创建一个以服务接口全名为名称的文件，其中包括服务提供者的实现类的全名
 
 
 

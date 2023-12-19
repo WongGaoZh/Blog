@@ -4,7 +4,7 @@
 ### 概念:
 **在Java中，主要有三种IO模型**，分别是阻塞IO（BIO）、非阻塞IO（NIO）和 异步IO（AIO）。
 
-Java中提供的IO有关的API，在文件处理的时候，其实依赖操作系统层面的IO操作实现的。比如在Linux 2.6以后，Java中NIO和AIO都是通过epoll来实现的，而在Windows上，AIO是通过IOCP来实现的。
+Java中提供的IO有关的API，在文件处理的时候，其实都是依赖操作系统层面的IO操作实现的。比如在Linux 2.6以后，Java中NIO和AIO都是通过epoll来实现的，而在Windows上，AIO是通过IOCP来实现的。
 
 BIO：Block IO 同步阻塞式 IO ;
 
@@ -21,9 +21,9 @@ Linux的五种IO模型
 |     | 同步                  | 异步 |
 |-----|---------------------|--|
 | 阻塞  | 阻塞IO  (BIO)              | 空 |
-| 阻塞 | 非阻塞IO模型  信号驱动IO模型 IO复用模型(NIO)  | 异步IO(AIO) |
+| 非阻塞 | 非阻塞IO模型  信号驱动IO模型 IO复用模型(NIO)  | 异步IO(AIO) |
 
-#### linux IO模型原理图示
+#### Linux IO模型原理图示
 
 
 ```java
