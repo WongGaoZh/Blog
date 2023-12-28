@@ -84,8 +84,22 @@ StringUtils.isBlank 比isEmpty多的是,假如有空格,isBlank依旧可以判�
 
 # 集合判空-list
 CollectionUtils.isEmpty();
-# map判null 
-MapUtils.isEmpty()
+
+# 使用ObjectUtils工具类（org.springframework.util）可以自动根据类型判断空，请看源码
+
+public static boolean isEmpty(Object object) {
+        if (object == null) {
+        return true;
+        } else if (object instanceof CharSequence) {
+        return ((CharSequence)object).length() == 0;
+        } else if (object.getClass().isArray()) {
+        return Array.getLength(object) == 0;
+        } else if (object instanceof Collection) {
+        return ((Collection)object).isEmpty();
+        } else {
+        return object instanceof Map ? ((Map)object).isEmpty() : false;
+        }
+}
 
 ```
 

@@ -6,6 +6,16 @@
 
 ## git基本使用
 
+```text
+# 配置当前仓库用户名和邮箱（不带--global，携带为修改全局）
+git config --global user.name username
+git config --global user.email  useremail@qq.com
+
+# 查看配置是否成功
+git config --list
+
+```
+
 
 
 ```
