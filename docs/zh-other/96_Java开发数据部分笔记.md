@@ -2,17 +2,12 @@
 
 ### 遍历数组(数据结构)
 
-
-
 ```
     int[] arr = {1,2,3,4,5};
     for(int i=0;i<arr.length;i++){
         System.out.print(arr[i] + " ");
     }
 ```
-
-
-
 ### 遍历链表(数据结构)
 ```
 public void Ergodic() {
@@ -67,11 +62,6 @@ List<String> list = new ArrayList<>(); // 普通方式
 Arrays.asList(32.5,78.3,45.6); //这种方式创建出来的数组是固定长度的.不推荐使用
 Lists.newArrayList(20304, 30304, 40304, 50106);
 Stream.of(56.3, 3.64, 4.65).collect(toList());
-
-
-# 创建一个map
-HashMap<String, String> map = new HashMap<String, String>();
-
 ```
 
 ### 判断null
@@ -132,40 +122,30 @@ Optional<TracerReceiveInnerRequest> opTriReq = Optional.ofNullable(request);
                 .collect(Collectors.toList());
         System.out.println(result1);
 
-//stream的map和reduce 
-  map用来归类，结果一般是一组数据，比如可以将list中的学生分数映射到一个新的stream中。
-  reduce用来计算值，结果是一个值，比如计算最高分。
-  //使用map方法获取list数据中的name
-        List<String> names = list.stream().map(Student::getName).collect(Collectors.toList());
-        System.out.println(names)
-  //计算学生总分
-        Integer totalScore1 = list.stream().map(Student::getScore).reduce(0,(a,b) -> a + b);
-        System.out.println(totalScore1);
-
-//应用  把list变成一个复杂的map集合
-Map<String, ManagedEntityStatus> alarmStateMap = alarmStateList.stream().collect(Collectors.toMap(x -> x.getAlarm().getValue(), x -> x.getOverallStatus()));
 
 
+        //应用  把list变成一个复杂的map集合
+Map<String, ManagedEntityStatus> alarmStateMap = 
+        alarmStateList.stream().collect(Collectors.toMap(x -> x.getAlarm().getValue(), x -> x.getOverallStatus()));
+Map<Integer, Student> map = 
+        list.stream().collect(Collectors.toMap(Student::getId, student -> student));
 
-map和flatmap的区别
-Stream.flatMap，正如它的名称所猜测的，是map和一个flat行动。这意味着您首先对元素应用一个函数，然后将其扁平化。Stream.map只对流应用函数，而不对流进行平坦处理。
+        // 对数据进行处理 通过groupingBy 把其中一项提出来做 map 的key
 
-为了理解什么是扁平化，考虑一个像[[1,2,3]，[4,5,6]，[7,8,9]]这样的具有“两个层次”的结构。 扁平化意味着将其转化为“一个一级”结构：[1,2,3,4,5,6,7,8,9]。
+        List<TSsfwClzyLbInfoCl> cllistBatch = materialSaveAllRepository.getCllistBatch(batchList);
+        Map<String, List<TSsfwClzyLbInfoCl>> tSsfwClzyLbInfoClList =
+        cllistBatch.stream().collect(Collectors.groupingBy(TSsfwClzyLbInfoCl::getCAjbh));
+        
+        //map和flatmap的区别
+        //Stream.flatMap，正如它的名称所猜测的，是map和一个flat行动。这意味着您首先对元素应用一个函数，然后将其扁平化。Stream.map只对流应用函数，而不对流进行平坦处理。
 
-
-对数据进行处理 通过groupingBy 把其中一项提出来做 map 的key
-
- List<TSsfwClzyLbInfoCl> cllistBatch = materialSaveAllRepository.getCllistBatch(batchList);
- Map<String, List<TSsfwClzyLbInfoCl>> tSsfwClzyLbInfoClList = cllistBatch.stream().collect(Collectors.groupingBy(TSsfwClzyLbInfoCl::getCAjbh));
-
-
+        //为了理解什么是扁平化，考虑一个像[[1,2,3]，[4,5,6]，[7,8,9]]这样的具有“两个层次”的结构。 扁平化意味着将其转化为“一个一级”结构：[1,2,3,4,5,6,7,8,9]。
 
 
-把list变成map
-Map<Integer, Student> map = list.stream().collect(Collectors.toMap(Student::getId, student -> student));
+        
 
 
-把List里面的list封装成map  ==(  )
+        // 把List里面的list封装成map  ==(  )
 Map<String, AjbhDsrListDTO> collect = ajBhDsrDTO.stream()
       .flatMap(e -> e.getDsrList().stream())
       .collect(Collectors.toMap(AjbhDsrListDTO::getZjhm, x -> x));
@@ -173,32 +153,6 @@ Map<String, AjbhDsrListDTO> collect = ajBhDsrDTO.stream()
 
 ```
 
-
-### 判断字符串中是否包括某个字符
-| 正则的规则
-| .代表任意字符,d代表数字,w代表汉子,标点符号
-| *代表匹配{0,} --- ? 代表匹配{0,1} ---- +代表匹配{1,}
-```java
-第一种使用 indexOf（）方法
-Str.indexOf("abc")；
-
-
-第二种是:使用正则
-String str ="hello world";
-String reg = ".*ll.*";
-sout(Pattern.matchers(reg,str))); 或者 sout(str.matches(reg)))
-```
-
-
-
-
-
-### 断言
-```
-Assert.notNull(attributes, () -> {
-            return "No auto-configuration attributes found. Is " + metadata.getClassName() + " annotated with " + ClassUtils.getShortName(name) + "?";
-        });
-```
 
 ### Spring计时器StopWatch使用
 

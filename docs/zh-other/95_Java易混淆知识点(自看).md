@@ -21,28 +21,27 @@
 
 #### Java怎么获取list长度
 
-java中的length属性是针对数组说的,比如说你声明了一个数组,想知道这个数组的长度则用到了length这个属性
+使用length时，你正在处理一个数组(int[])。
 
-java中的length()方法是针对字符串String说的,如果想看这个字符串的长度则用到length()这个方法
+使用length()时，你正在处理一个字符串或类似字符串的序列。
 
-java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看
+使用size()时，你正在处理一个集合（如列表、集合、映射等）。
 
 ---
 
 #### 创建数组的几种方式
-
 ```
 // 静态初始化
-    int intArray2 [] = new int []{20,21,22};
+    int[] intArray2  = new int []{20,21,22};
 // 静态初始化简化方式
-    int intArray3 [] = {30,31,32};
+    int[] intArray3  = {30,31,32};
 // 动态初始化
-    int [] intArray4 = new int [3]; 
+    int[] intArray4  = new int [3]; 
 -----------------
 // 错误写法：静态初始化不能指定元素个数
-    int intErrorArray5[] = new int[3]{50,51,52};
+    int[] intErrorArray5 = new int[3]{50,51,52};
 // 错误写法：动态初始化必须指定元素个数
-    int intErrorArray6[] = new int[];
+    int[] intErrorArray6 = new int[];
 
 ```
 #### Java的恒等判断 ==与equals()的区别
