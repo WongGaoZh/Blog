@@ -88,14 +88,17 @@
 * [**九 其他**](zh-other/)
   + [01_Json框架选型](zh-other/01_Json框架选型.md)
   + [01_java里面的classpath是什么以及怎么在程序中使用](zh-other/01_java里面的classpath是什么以及怎么在程序中使用.md)
+  + [03_数字证书的验证](zh-other/03_数字证书的验证.md)
+  + [04_开源协议的选择](zh-other/04_开源协议的选择.md)
 
   + **其他工具**
+    + [mysql命令](zh-other/90_mysql.md)
     + [linux命令1](zh-other/91_linux命令1.md)
     + [linux命令2](zh-other/92_linux命令2.md)
     + [linux命令3](zh-other/93_linux命令3.md)
     + [*** Java易混淆知识点(自看)](zh-other/95_Java易混淆知识点(自看).md)
     + [*** Java开发数据部分笔记](zh-other/96_Java开发数据部分笔记.md)
-    + [git使用](zh-other/97_git.md)
+    + [Git使用](zh-other/97_git.md)
     + [技术选型](zh-other/98_技术选型.md)                       
 
   - **工具类**

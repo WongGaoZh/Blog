@@ -18,6 +18,14 @@
 |*|统计当前文件夹的文件的数量|ls |wc -l||
 
 
+#### vi命令
+
+```shell script
+vi 命令下
+set nu 显示行数
+/searchword  查找searchword， n为找下一个，N为上一个
+:%s/old/new/g    其中，old是要被替换的内容，new是新内容，g 表示全局替换。如果不需要全局替换，可以省略 g
+```
 
 #### 查看文件内容-理论
 
@@ -126,9 +134,3 @@ TIPS：在用搜索指令时，请记得用sudo且cd到  /  目录下，这样�
 ```
 
 
-#### vi命令
-
-```shell script
-vi 命令下
-set nu 显示行数
-```

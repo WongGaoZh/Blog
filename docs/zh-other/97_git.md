@@ -1,22 +1,19 @@
-## git的使用
+## Git的使用
 
 学习网址: https://learngitbranching.js.org/
-
-
 
 ## git基本使用
 
 ```text
 # 配置当前仓库用户名和邮箱（不带--global，携带为修改全局）
-git config --global user.name username
+git config --global user.name   username
 git config --global user.email  useremail@qq.com
 
 # 查看配置是否成功
-git config --list
+git config --local   --list
+git config --global --list
 
 ```
-
-
 
 ```
 # 查看
@@ -25,12 +22,22 @@ git status 查看当前状态
 ```
 
 ```
+# 拉取 
+git fetch 获取远程版本库的提交
+git pull  拉回远程版本库的提交
+git pull --rebase     <git pull --rebase可以保持更清晰的提交历史，避免不必要的合并提交和分叉>
+git pull --ff-only    <两者都有助于保持提交历史的清晰性，但 git pull --rebase 通过重新应用提交来实现这一点，而 git pull --ff-only 则通过限制合并类型来保持历史的线性> 
+git rebase 分支变基
+git rebase–interactive  交互式分支变基
+```
+
+```
 # 提交
 git commit -m 'xxx'                    # 提交 
-git commit --amend -m 'xxx'          # 合并上一次提交（用于反复修改） 
-git commit --amend --no-edit  提交但是覆盖上次提交(只有一次提交记录)
-git push origin HEAD:refs/for/master  推送到远程中台
-git push <remote> <branch> -f
+git commit --amend -m 'xxx'            # 合并上一次提交（用于反复修改） 
+git commit --amend --no-edit           # 提交但是覆盖上次提交(只有一次提交记录)
+git push origin HEAD:refs/for/master   # 推送到远程中台
+git push <remote> <branch> -f          # 强制推送，会把远程记录重写
 ```
 
 ```java
@@ -46,15 +53,6 @@ git reset --soft origin/xxx(分支名)  # 有多次提交的时候, 撤销操作
 
 ```
 
-```
-# 拉取 
-git fetch 获取远程版本库的提交
-git pull  拉回远程版本库的提交
-git rebase 分支变基
-git rebase–interactive  交互式分支变基
-
-
-```
 
 ```shell
 ## 从其他分支把代码拿过来

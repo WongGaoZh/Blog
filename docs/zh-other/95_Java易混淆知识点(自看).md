@@ -49,10 +49,9 @@
  + equals:比较引用类型默认也是比较地址值是否相同，注意:String类重写了equals()方法，比较的是内容是否相同。
 
 
-#### 
-第一个问题: 静态代码块,静态方法,普通代码块, 构造方法,普通方法
+####  什么是 静态代码块,普通代码块 ,静态方法, 构造方法,普通方法
 
-静态代码块:
+```text
 public class CodeBlock {
     static{
         System.out.println("静态代码块");
@@ -69,17 +68,16 @@ public class CodeBlock {
         System.out.println("普通方法");
     }
     
-    public  static void test(){
+    public static void test(){
         System.out.println("静态方法");
     }
 }
+```
 
-
-
-重点是: 静态方法和普通方法是只有被调用的时候才会加载
+**重点是: 静态方法和普通方法是只有被调用的时候才会加载
 
 然后其他三个加载顺序是 静态代码块要最早执行,
-其他两个是按顺序执行的
+其他两个是按顺序执行的**
 
 
 
